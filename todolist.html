@@ -87,15 +87,12 @@
           taskParent.removeChild(task);
         }
 
-        listItem.onclick = function() {
-          var item = this.parentNode;
-          var itemParent = item.parentNode;
-          item.style.backgroundColor = 'blue';
+        listItem.onclick = function(ev) {
+          var node = document.querySelector('ul');
+          ev.target.classList.toggle('checked');
+          }
         }
 
-
-
-      }
 
 
     </script>

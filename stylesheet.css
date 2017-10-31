@@ -25,7 +25,7 @@ list-group-item{
   background-color: #aaaaaa;
 }
 
-ul li:checked::before{
+ul li.checked{
   text-decoration: line-through;
-  background-color: green;
+  background-color: lightgray;
 }
