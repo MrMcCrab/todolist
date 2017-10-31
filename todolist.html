@@ -20,7 +20,7 @@
 
         <div class="col-md-4">
           <div class="jumbotron">
-
+            <h3 class="heading">Todo list</h3>
           </div>
         </div>
 
@@ -36,7 +36,7 @@
 
         </div>
 
-        <div class="col-md-4" id='taskContent'>
+        <div class="col-md-4">
 
           <form class="form-inline">
             <input class="form-control" id="taskInput" type="text" name="" value="">
@@ -60,26 +60,40 @@
     <script type="text/javascript">
 
       function addtask() {
-        var li = document.createElement('li');
-        li.setAttribute('class', 'list-group-item');
-        var deleteButton = document.createElement('button');
-        deleteButton.setAttribute('class', 'deleteButton btn');
-        deleteButton.onclick = function(){
-          
-        }
-        var deleteButtonText = document.createTextNode('Delete');
-        var task = document.getElementById('taskInput').value;
-        var taskText = document.createTextNode(task);
+
         var taskList = document.getElementById('taskList');
-        if (task === '') {
-          alert("Task cannot be empty")
+        var deleteButtonSpan = document.createElement('span');
+        var listItem = document.createElement('li');
+        var taskContent = document.getElementById('taskInput').value;
+        var taskInputText = document.createTextNode(taskContent);
+        var deleteButton = document.createTextNode('X');
+
+        listItem.setAttribute('class', 'list-group-item');
+        deleteButtonSpan.setAttribute('class', 'deleteButtonSpan');
+
+        if(taskContent === ""){
+          alert("Task can not be empty");
         }else {
-          taskList.appendChild(li);
-          li.appendChild(taskText);
-          li.appendChild(deleteButton);
-          deleteButton.appendChild(deleteButtonText);
-          document.getElementById('taskInput').value = '';
+          taskList.appendChild(listItem);
+          listItem.appendChild(taskInputText);
+          deleteButtonSpan.appendChild(deleteButton);
+          listItem.appendChild(deleteButtonSpan);
+          document.getElementById('taskInput').value = "";
         }
+
+        deleteButtonSpan.onclick = function(){
+          var task = this.parentNode;
+          var taskParent = task.parentNode;
+          taskParent.removeChild(task);
+        }
+
+        listItem.onclick = function() {
+          var item = this.parentNode;
+          var itemParent = item.parentNode;
+          item.style.backgroundColor = 'blue';
+        }
+
+
 
       }
 
