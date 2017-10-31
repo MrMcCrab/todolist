@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheet.css">
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-4">
+
+        </div>
+
+        <div class="col-md-4">
+          <div class="jumbotron">
+
+          </div>
+        </div>
+
+        <div class="col-md-4">
+
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-4">
+
+        </div>
+
+        <div class="col-md-4" id='taskContent'>
+
+          <form class="form-inline">
+            <input class="form-control" id="taskInput" type="text" name="" value="">
+            <span class="btn btn-primary btn-add" onclick="addtask()">Add</span>
+          </form>
+
+          <ul class="list-group" id="taskList">
+
+          </ul>
+
+        </div>
+
+        <div class="col-md-4">
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <script type="text/javascript">
+
+      function addtask() {
+        var li = document.createElement('li');
+        li.setAttribute('class', 'list-group-item');
+        var deleteButton = document.createElement('button');
+        deleteButton.setAttribute('class', 'deleteButton btn');
+        deleteButton.onclick = function(){
+          alert('test');
+        }
+        var deleteButtonText = document.createTextNode('Delete');
+        var task = document.getElementById('taskInput').value;
+        var taskText = document.createTextNode(task);
+        var taskList = document.getElementById('taskList');
+        if (task === '') {
+          alert("Task cannot be empty")
+        }else {
+          taskList.appendChild(li);
+          li.appendChild(taskText);
+          li.appendChild(deleteButton);
+          deleteButton.appendChild(deleteButtonText);
+          document.getElementById('taskInput').value = '';
+        }
+
+      }
+
+
+    </script>
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+.btn-add{
+  margin-left: 10px;
+}
+
+.btn-add{
+  border-radius: 0px;
+}
+
+.deleteButton{
+  position: absolute;
+  right: 0;
+}
+.deleteButton:hover{
+  background-color: red;
+  color: white;
+}
+
+.list-group-item{
+  margin-top: 0px;
+  border-radius: 0px;
+}
+
+.form-inline{
+  margin-bottom: 5px;
+}
+
+.form-control{
+  border-radius: 0px;
+}
